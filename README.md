@@ -7,3 +7,8 @@ Front React / Back PHP - MySQL - MVC - POO - API REST PHP
 Fichier Excel
 
 ![alt text](https://github.com/bezedache29/ProjetReact2/blob/master/img/excel.jpg)
+
+Diagramme des cas d'utilisation
+
+![alt text](https://github.com/bezedache29/ProjetReact2/blob/master/img/UseCaseVisiteurs.jpg)
+![alt text](https://github.com/bezedache29/ProjetReact2/blob/master/img/UseCaseAdmins.jpg)
