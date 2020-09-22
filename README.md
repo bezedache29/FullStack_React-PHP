@@ -13,5 +13,5 @@ Front React / Back PHP - MySQL - MVC - POO - API REST PHP
 ![alt text](https://github.com/bezedache29/ProjetReact2/blob/master/img/UseCaseVisiteurs.jpg)
 ![alt text](https://github.com/bezedache29/ProjetReact2/blob/master/img/UseCaseAdmins.jpg)
 
-### WireFrame Low-Fi + Proto Low-Fo (Visiteurs)
+### WireFrame Low-Fi + Proto Low-Fo | DeskTop (Visiteurs)
 [Lien Adobe XD](https://xd.adobe.com/view/14c724eb-f0ef-4328-a414-3cd9fc2605c1-4194/)
