@@ -15,3 +15,6 @@ Front React / Back PHP - MySQL - MVC - POO - API REST PHP
 
 ### WireFrame Low-Fi + Proto Low-Fo | DeskTop (Visiteurs)
 [Lien Adobe XD](https://xd.adobe.com/view/14c724eb-f0ef-4328-a414-3cd9fc2605c1-4194/)
+
+### WireFrame Low-Fi + Proto Low-Fo | DeskTop (Admins)
+[Lien Adobe XD](https://xd.adobe.com/view/3a802be6-bd5c-479b-bea3-71613e828e1d-6fd3/)
