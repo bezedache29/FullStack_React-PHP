@@ -1,12 +1,11 @@
 import React from 'react'
+import TitreH1 from '../../Titres/TitreH1'
 
 const erreur404 = (props) => {
     return (
         <>
-            <div>
-                Image
-            </div>
-            <h2>Cette Page n'existe pas !</h2>
+            <TitreH1 bgColor='bg-danger'>Erreur 404</TitreH1>
+            <p>Cette page n'existe pas !</p>
         </>
     )
 }

@@ -1,0 +1,17 @@
+.site {
+    min-height: 100vh;
+    margin-bottom: -150px;
+}
+footer, .minSite {
+	height: 150px;
+}
+.perso_link {
+    text-decoration: none;
+    color: white;
+    opacity: 0.7;
+}
+.perso_link:hover {
+    text-decoration: none;
+    color: white;
+    opacity: 1;
+}
