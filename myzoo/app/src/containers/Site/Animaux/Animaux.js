@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import TitreH1 from '../../../components/Titres/TitreH1'
 import axios from 'axios'
+import Animal from '../Animaux/Animal/Animal'
 
 class Animaux extends Component {
     state = {
@@ -27,17 +28,31 @@ class Animaux extends Component {
         })
     }
 
+    handleClicContinent = (continent) => {
+        console.log(continent)
+    }
+
+    handleClicFamille = (famille) => {
+        console.log(famille)
+    }
+
     render() {
         return (
             <Fragment>
                 <div className="container mt-1">
                     <TitreH1 bgColor="bg-primary">Les animaux du parc My Zoo</TitreH1>
-                    {(this.state.loading) && <div>Chargement des animaux...</div>}
-                    {(!this.state.loading) && (this.state.animaux) &&
-                        this.state.animaux.map((animal, index) => {
-                            return <div key={index}>Type : {animal.type_animal}</div>
-                        })
-                    }
+                    <div className="row no-gutters mb-3">
+                        {(this.state.loading) && <div>Chargement des animaux...</div>}
+                        {(!this.state.loading) && (this.state.animaux) &&
+                            this.state.animaux.map((animal, index) => {
+                                return (
+                                    <div key={index} className="col-12 col-md-4 p-1">
+                                        <Animal clicFamille={this.handleClicFamille} clicContinent={this.handleClicContinent} {...animal} />
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </Fragment>
         )

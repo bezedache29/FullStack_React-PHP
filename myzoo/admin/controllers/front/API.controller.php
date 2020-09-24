@@ -44,7 +44,7 @@ class APIController {
                     "id_animal" => $animal['id_animal'],
                     "type_animal" => $animal['type_animal'],
                     "description_animal" => $animal['description_animal'],
-                    "image_animal" => $animal['image_animal'],
+                    "image_animal" => URL."public/images/animaux/".$animal['image_animal'],
                     "deleted_animal" => $animal['deleted_animal'],
                     "famille" => [
                         "id_famille" => $animal['id_famille'],
@@ -53,13 +53,15 @@ class APIController {
                         "deleted_famille" => $animal['deleted_famille']
                     ]
                 ];
-            }else {
-                $tab[$animal['id_animal']]['continents'][] = [
-                    'id_continent' => $animal['id_continent'],
-                    'nom_continent' => $animal['nom_continent'],
-                    'deleted_continent' => $animal['deleted_continent']
-                ];
             }
+
+            // On ajoute les continents de l'animal
+            $tab[$animal['id_animal']]['continents'][] = [
+                'id_continent' => $animal['id_continent'],
+                'nom_continent' => $animal['nom_continent'],
+                'deleted_continent' => $animal['deleted_continent']
+            ];
+            
         }
         return $tab;
     }
