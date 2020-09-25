@@ -19,12 +19,12 @@ class APIController {
         Model::sendJSON($familles);
     }
 
-    public function getAnimaux() {
-        $animaux = $this->apiManager->getDBAnimaux();
+    public function getAnimaux(int $id_famille, int $id_continent) {
+        $animaux = $this->apiManager->getDBAnimaux($id_famille, $id_continent);
         $dataAnimaux = $this->formatDataAnimaux($animaux);
-        // echo "<pre>";
-        // print_r($dataAnimaux);
-        // echo "</pre>";
+        echo "<pre>";
+        print_r($dataAnimaux);
+        echo "</pre>";
         Model::sendJSON($dataAnimaux);
     }
 

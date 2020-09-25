@@ -21,7 +21,16 @@ try {
             break;
             case 'front' :
                 if($url[1] === 'animaux') {
-                    $apiController->getAnimaux();
+                    if(!isset($url[2]) || !isset($url[3])) {
+                        $apiController->getAnimaux(-1,-1);
+                    }else {
+                        if(is_numeric($url[2]) && is_numeric($url[3])) {
+                            $apiController->getAnimaux((int)$url[2], (int)$url[3]);
+                        }else {
+                            throw new Exception("Vous devez renseigner des id");
+                        }
+                    }
+                    
                 }elseif($url[1] === 'animal') {
                     if(empty($url[2]) || !(is_numeric($url[2]))) {
                         throw new Exception("L'id de l'animal n'est pas renseigné");
