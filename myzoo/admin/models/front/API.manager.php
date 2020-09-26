@@ -5,7 +5,31 @@ require_once "models/Model.php";
 class APIMAnager extends Model {
 
     public function getDBAnimaux(int $id_famille, int $id_continent) {
-        if($id_famille == -1 && $id_continent == -1) {
+        $db = $this->getBdd();
+
+        if($id_famille == -1 && $id_continent != -1) {
+            $query = $db->prepare('SELECT * FROM animaux 
+            INNER JOIN familles on animaux.id_famille = familles.id_famille 
+            INNER JOIN animaux_continents on animaux.id_animal = animaux_continents.id_animal 
+            INNER JOIN continents on animaux_continents.id_continent = continents.id_continent 
+            WHERE continents.id_continent = :id_continent 
+            AND animaux.deleted_animal = 0');
+            $value = [
+                'id_continent' => $id_continent
+            ];
+            $query->execute($value);
+        }elseif($id_famille != -1 && $id_continent == -1) {
+            $query = $db->prepare('SELECT * FROM animaux 
+            INNER JOIN familles on animaux.id_famille = familles.id_famille 
+            INNER JOIN animaux_continents on animaux.id_animal = animaux_continents.id_animal 
+            INNER JOIN continents on animaux_continents.id_continent = continents.id_continent 
+            WHERE familles.id_famille = :id_famille 
+            AND animaux.deleted_animal = 0');
+            $value = [
+                'id_famille' => $id_famille
+            ];
+            $query->execute($value);
+        }elseif($id_famille == -1 && $id_continent == -1) {
             $db = $this->getBdd();
             $query = $db->prepare('SELECT * FROM animaux 
             INNER JOIN familles on animaux.id_famille = familles.id_famille 
@@ -13,8 +37,7 @@ class APIMAnager extends Model {
             INNER JOIN continents on animaux_continents.id_continent = continents.id_continent 
             AND animaux.deleted_animal = 0');
             $query->execute();
-        }else {
-            $db = $this->getBdd();
+        }elseif($id_famille != -1 && $id_continent != -1) {
             $query = $db->prepare('SELECT * FROM animaux 
             INNER JOIN familles on animaux.id_famille = familles.id_famille 
             INNER JOIN animaux_continents on animaux.id_animal = animaux_continents.id_animal 
