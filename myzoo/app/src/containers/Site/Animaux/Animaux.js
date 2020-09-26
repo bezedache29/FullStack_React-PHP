@@ -59,8 +59,12 @@ class Animaux extends Component {
         }else {
             this.chargementAnimaux(this.state.famille, continent)
         }
-        
-        this.setState({continent:continent})
+
+        if(continent === "-1") {
+            this.handleSupprContinent()
+        }else {
+            this.setState({continent:continent})
+        }
     }
 
     handleClicFamille = (famille) => {
@@ -69,8 +73,12 @@ class Animaux extends Component {
         }else {
             this.chargementAnimaux(famille, this.state.continent)
         }
-        
-        this.setState({famille:famille})
+
+        if(famille === "-1") {
+            this.handleSupprFamille()
+        }else {
+            this.setState({famille:famille})
+        }
     }
 
     handleSupprFamille = () => {
@@ -79,6 +87,7 @@ class Animaux extends Component {
         }else {
             this.chargementAnimaux(-1, -1)
         }
+        
 
         this.setState({famille:null})
     }
@@ -95,35 +104,65 @@ class Animaux extends Component {
 
     
     render() {
+
+        // Pour afficher le nom des familles dans le boutons lors des filtres
+        let nomFamilleFiltre = ""
+        // On check si on a bien une valeur dans le state famille
+        if(this.state.famille) {
+            // On boucle pour recupéer l'index de la famille voulu
+            const numCaseFamille = this.state.listeFamilles.findIndex(famille => {
+                // On retourne le numero de la famille lorque les numero sont identique
+                return this.state.famille === famille.id_famille
+            })
+            // On recupere le nom de la famille a placer dans le bouton
+            nomFamilleFiltre = this.state.listeFamilles[numCaseFamille].nom_famille
+        }
+
+        // Idem aavec les continents
+        let nomContinentFiltre = ""
+        
+        if(this.state.continent) {
+            const numCaseContinent = this.state.listeContinents.findIndex(continent => {
+                return this.state.continent === continent.id_continent
+            })
+            nomContinentFiltre = this.state.listeContinents[numCaseContinent].nom_continent
+        }
+
         return (
             <Fragment>
                 <div className="container mt-1">
                     <TitreH1 bgColor="bg-primary">Les animaux du parc My Zoo</TitreH1>
-                    {(this.state.continent || this.state.famille) && (this.state.animaux) &&
-                        <span>Filtres : </span>
-                    }
-                        
-                    {(this.state.listeContinents) && (this.state.continent || this.state.famille) && 
-                        <select className="col-3 mx-2">
-                        {this.state.listeContinents.map((continent, index) => {
-                                return <option key={index}>{continent.nom_continent}</option>
+                    <span>Filtres : </span>
+
+                    {(this.state.listeFamilles) &&  
+                        <select className="col-3 mx-2" onChange={(event) => this.handleClicFamille(event.target.value)}>
+                            <option value="-1" selected={(this.state.famille === null) && "selected"}>Familles</option>
+                        {this.state.listeFamilles.map((famille, index) => {
+                                return <option 
+                                            key={index} 
+                                            selected={(this.state.famille === famille.id_famille) && "selected"}
+                                            value={famille.id_famille}>{famille.nom_famille}</option>
                             })}
                         </select>
                     }
 
-                    {(this.state.listeFamilles) && (this.state.continent || this.state.famille) && 
-                        <select className="col-3 mx-2">
-                        {this.state.listeFamilles.map((famille, index) => {
-                                return <option key={index}>{famille.nom_famille}</option>
+                    {(this.state.listeContinents) &&  
+                        <select className="col-3 mx-2" onChange={(event) => this.handleClicContinent(event.target.value)}>
+                            <option value="-1" selected={(this.state.continent === null) && "selected"}>Continents</option>
+                        {this.state.listeContinents.map((continent, index) => {
+                                return <option 
+                                            key={index} 
+                                            selected={(this.state.continent === continent.id_continent) && "selected"} 
+                                            value={continent.id_continent}>{continent.nom_continent}</option>
                             })}
                         </select>
                     }
                         
                     {(this.state.famille) && (this.state.animaux) &&
-                        <Bouton btnColor='btn-secondary' clic={() => this.handleSupprFamille()}>{this.state.famille}</Bouton>
+                        <Bouton btnColor='btn-secondary' clic={() => this.handleSupprFamille()}>{nomFamilleFiltre}</Bouton>
                     }
                     {(this.state.continent) && (this.state.animaux) &&
-                        <Bouton btnColor='btn-secondary' clic={() => this.handleSupprContinent()}>{this.state.continent}</Bouton>
+                        <Bouton btnColor='btn-secondary' clic={() => this.handleSupprContinent()}>{nomContinentFiltre}</Bouton>
                     }
                     <div className="row no-gutters mb-3">
                         {(this.state.loading) && <div>Chargement des animaux...</div>}
