@@ -16,7 +16,7 @@ class Site extends Component {
                     <Route path="/" render={() => <NavBar />} />
                     <Switch>
                         <Route path="/" exact render={(props) => <Accueil />} />
-                        <Route path="/animaux" exact render={(props) => <Animaux />} />
+                        <Route path="/animaux/" exact render={(props) => <Animaux />} />
                         <Route path="/contact" exact render={(props) => <Contact />} />
                         <Route path="/mentions" exact render={(props) => <h1>Pages des mentions légales</h1>} />
                         <Route render={(props) => <Erreurs><Erreur404 {...props} /></Erreurs>} />

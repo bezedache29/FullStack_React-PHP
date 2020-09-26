@@ -12,7 +12,7 @@ class APIMAnager extends Model {
             INNER JOIN familles on animaux.id_famille = familles.id_famille 
             INNER JOIN animaux_continents on animaux.id_animal = animaux_continents.id_animal 
             INNER JOIN continents on animaux_continents.id_continent = continents.id_continent 
-            WHERE continents.id_continent = :id_continent 
+            WHERE animaux.id_animal IN (SELECT id_animal FROM animaux_continents WHERE id_continent = :id_continent)  
             AND animaux.deleted_animal = 0');
             $value = [
                 'id_continent' => $id_continent
@@ -43,7 +43,7 @@ class APIMAnager extends Model {
             INNER JOIN animaux_continents on animaux.id_animal = animaux_continents.id_animal 
             INNER JOIN continents on animaux_continents.id_continent = continents.id_continent 
             WHERE familles.id_famille = :id_famille 
-            AND continents.id_continent = :id_continent 
+            AND animaux.id_animal IN (SELECT id_animal FROM animaux_continents WHERE id_continent = :id_continent)  
             AND animaux.deleted_animal = 0');
             $values = [
                 'id_famille' => $id_famille,
