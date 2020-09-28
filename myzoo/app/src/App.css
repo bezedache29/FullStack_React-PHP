@@ -18,3 +18,8 @@ footer, .minSite {
 h3 {
     font-family: 'Indie Flower', cursive;
 }
+
+.leaflet-container {
+    width: 100%;
+    height: 50vh;
+}
