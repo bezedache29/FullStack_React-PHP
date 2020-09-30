@@ -1,7 +1,6 @@
 {
   "name": "app",
   "version": "0.1.0",
-  "homepage": "http://ripley.eu/php/react_php",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",

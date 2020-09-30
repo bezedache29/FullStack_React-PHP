@@ -1,9 +1,14 @@
 <?php
+session_start();
+
 // On cré une constante pour ne pas avoir de pb d'access. Ce sera un chemin absolue
 define('URL', str_replace('index.php', '', (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']));
 
 require_once "controllers/front/API.controller.php";
 $apiController = new APIController();
+
+require_once "controllers/back/admin.controller.php";
+$adminController = new AdminController();
 
 try {
     if(empty($_GET['page'])) {
@@ -17,7 +22,17 @@ try {
 
         switch($url[0]) {
             case 'back' :
-                echo "On apelle la page back end";
+                if($url[1] === 'login') {
+                    $adminController->getPageLogin();
+                }elseif($url[1] === 'connexion') {
+                    $adminController->connexion();
+                }elseif($url[1] === 'home') {
+                    $adminController->getHome();
+                }elseif($url[1] === 'deconnexion') {
+                    $adminController->deconnexion();
+                }else {
+                    throw new Exception("Quelle page ?");
+                }
             break;
             case 'front' :
                 if($url[1] === 'animaux') {

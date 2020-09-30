@@ -1,7 +1,5 @@
 <?php
 
-use function GuzzleHttp\json_decode;
-
 require_once "models/front/API.manager.php";
 require_once "models/Model.php";
 
@@ -80,10 +78,6 @@ class APIController {
         // Exemple : Pour récupérer le mail
         $mail = $obj->email;
 
-        $message = [
-            'email' => $obj->email
-        ];
-
         // On peut envoyer un mail ici
         // $to = "contact@myzoo.com";
         // $subject = "Message en provenance du formulaire de contact de : " . $objet->nom;
@@ -92,6 +86,6 @@ class APIController {
 
         // mail($to, $subject, $message, $headers);
 
-        echo json_encode($message);
+        echo json_encode("Message envoyé");
     }
 }

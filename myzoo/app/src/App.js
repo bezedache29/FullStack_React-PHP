@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   return (
-    <BrowserRouter basename="/php/react_php">
+    <BrowserRouter>
       <Site />
     </BrowserRouter>
   );
