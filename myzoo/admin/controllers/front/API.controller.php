@@ -75,10 +75,14 @@ class APIController {
         header("Access-Control-Allow-Headers: Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization");
 
         // On récupère les infos qui sont dans notre objet js
-        $objet = json_decode(file_get_contents('php://input'));
+        $obj = json_decode(file_get_contents('php://input'));
 
         // Exemple : Pour récupérer le mail
-        $mail = $objet->email;
+        $mail = $obj->email;
+
+        $message = [
+            'email' => $obj->email
+        ];
 
         // On peut envoyer un mail ici
         // $to = "contact@myzoo.com";
@@ -88,6 +92,6 @@ class APIController {
 
         // mail($to, $subject, $message, $headers);
 
-        echo json_encode("Email envoyé");
+        echo json_encode($message);
     }
 }

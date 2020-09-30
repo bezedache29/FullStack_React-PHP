@@ -35,6 +35,7 @@ class Contact extends Component {
         axios.post("http://localhost/Udemy/H2prog/React/ProjetReact2/myzoo/admin/front/sendForm", infosForm)
             .then(reponse => {
                 console.log(reponse)
+                console.log(reponse.data)
             })
             .catch(error => {
                 console.log(error)
