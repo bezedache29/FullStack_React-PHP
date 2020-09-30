@@ -32,7 +32,7 @@ class Contact extends Component {
         }
 
         // On envoie le formulaire
-        axios.post("http://localhost/Udemy/H2prog/React/ProjetReact2/myzoo/admin/front/sendForm", infosForm)
+        axios.post("http://localhost/Udemy/H2prog/React/ProjetReact2/myzoo/serv/front/sendForm", infosForm)
             .then(reponse => {
                 console.log(reponse)
                 console.log(reponse.data)

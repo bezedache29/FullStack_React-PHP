@@ -11,6 +11,12 @@
     <?php ($menu != false) ? require_once "views/commons/menu.php" : null ; ?>
     <div class="container">
         <h1 class="rounded border border-dark mt-2 p-2 text-center text-white bg-info"><?= $titre; ?></h1>
+        <?php if(!empty($_SESSION['alert'])) : ?>
+            <div class="alert <?= $_SESSION['alert']['color']; ?>" role="alert">
+                <?= $_SESSION['alert']['message']; ?>
+            </div>
+        <?php unset($_SESSION['alert']); ?>
+        <?php endif; ?>
         <!-- On apelle le contenu qui se trouve dans ob_start -->
         <?= $content; ?>
     </div>

@@ -17,7 +17,7 @@ class Animaux extends Component {
     chargementAnimaux = (famille, continent) => {
         this.setState({loading: true})
 
-        axios.get(`http://localhost/Udemy/H2prog/React/ProjetReact2/myzoo/admin/front/animaux/${famille}/${continent}`)
+        axios.get(`http://localhost/Udemy/H2prog/React/ProjetReact2/myzoo/serv/front/animaux/${famille}/${continent}`)
         .then(reponse => {
             const listeAnimaux = Object.values(reponse.data)
             this.setState({
@@ -31,14 +31,14 @@ class Animaux extends Component {
     }
 
     chargementContinents = () => {
-        axios.get(`http://localhost/Udemy/H2prog/React/ProjetReact2/myzoo/admin/front/continents`)
+        axios.get(`http://localhost/Udemy/H2prog/React/ProjetReact2/myzoo/serv/front/continents`)
             .then(reponse => {
                 this.setState({listeContinents:reponse.data})
             })
     }
 
     chargementfamilles= () => {
-        axios.get(`http://localhost/Udemy/H2prog/React/ProjetReact2/myzoo/admin/front/familles`)
+        axios.get(`http://localhost/Udemy/H2prog/React/ProjetReact2/myzoo/serv/front/familles`)
             .then(reponse => {
                 this.setState({listeFamilles:reponse.data})
             })

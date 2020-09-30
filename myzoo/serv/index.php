@@ -10,6 +10,9 @@ $apiController = new APIController();
 require_once "controllers/back/admin.controller.php";
 $adminController = new AdminController();
 
+require_once "controllers/back/famille.controller.php";
+$familleController = new FamilleController();
+
 try {
     if(empty($_GET['page'])) {
         echo "On apelle la page d'accueil";
@@ -30,6 +33,16 @@ try {
                     $adminController->getHome();
                 }elseif($url[1] === 'deconnexion') {
                     $adminController->deconnexion();
+                }elseif($url[1] === 'familles') {
+                    if($url[2] === 'listeFamilles') {
+                        $familleController->visualisation();
+                    }elseif($url[2] === 'ajouterFamille') {
+                        
+                    }elseif($url[2] === 'supprFamille') {
+                        $familleController->supprFamille();
+                    }else {
+                        throw new Exception("Error !");
+                    }
                 }else {
                     throw new Exception("Quelle page ?");
                 }
@@ -69,5 +82,7 @@ try {
 }catch(Exception $e) {
     $msg = $e->getMessage();
     echo $msg;
+    echo "<br>";
+    echo "<a href='" . URL . "back/login'>login</a>";
 }
 ?>
