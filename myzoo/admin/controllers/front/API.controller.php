@@ -1,4 +1,7 @@
 <?php
+
+use function GuzzleHttp\json_decode;
+
 require_once "models/front/API.manager.php";
 require_once "models/Model.php";
 
@@ -64,5 +67,27 @@ class APIController {
             
         }
         return $tab;
+    }
+
+    public function sendForm() {
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
+        header("Access-Control-Allow-Headers: Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization");
+
+        // On récupère les infos qui sont dans notre objet js
+        $objet = json_decode(file_get_contents('php://input'));
+
+        // Exemple : Pour récupérer le mail
+        $mail = $objet->email;
+
+        // On peut envoyer un mail ici
+        // $to = "contact@myzoo.com";
+        // $subject = "Message en provenance du formulaire de contact de : " . $objet->nom;
+        // $message = $objet->message;
+        // $headers = "From : " . $objet->email;
+
+        // mail($to, $subject, $message, $headers);
+
+        echo json_encode("Email envoyé");
     }
 }

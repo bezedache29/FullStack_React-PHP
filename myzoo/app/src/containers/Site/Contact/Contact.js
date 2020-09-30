@@ -3,6 +3,7 @@ import Carte from '../../../components/Map/Map'
 import Bouton from '../../../components/Boutons/Bouton/Bouton'
 import Formulaire from './Formulaire/Formulaire'
 import Titre from '../../../components/Titres/TitreH1'
+import axios from 'axios'
 
 class Contact extends Component {
     state = {
@@ -22,9 +23,23 @@ class Contact extends Component {
         }
     }
 
-    handleValidation = () => {
+    handleValidation = (nom, email, message) => {
         this.setState({formulaire:false})
-        alert('Message Envoyé')
+        const infosForm = {
+            nom: nom,
+            email: email,
+            message: message
+        }
+
+        // On envoie le formulaire
+        axios.post("http://localhost/Udemy/H2prog/React/ProjetReact2/myzoo/admin/front/sendForm", infosForm)
+            .then(reponse => {
+                console.log(reponse)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
     }
 
     render() {

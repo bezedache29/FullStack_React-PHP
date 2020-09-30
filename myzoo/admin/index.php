@@ -42,6 +42,8 @@ try {
                     $apiController->getContinents();
                 }elseif($url[1] === 'familles') {
                     $apiController->getFamilles();
+                }elseif($url[1] === 'sendForm') {
+                    $apiController->sendForm();
                 }else {
                     throw new Exception("La page n'existe pas");
                 }
