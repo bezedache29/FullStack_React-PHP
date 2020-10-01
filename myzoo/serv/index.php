@@ -13,6 +13,9 @@ $adminController = new AdminController();
 require_once "controllers/back/famille.controller.php";
 $familleController = new FamilleController();
 
+require_once "controllers/back/animaux.controller.php";
+$animauxController = new AnimauxController();
+
 try {
     if(empty($_GET['page'])) {
         echo "On apelle la page d'accueil";
@@ -45,6 +48,19 @@ try {
                     }elseif($url[2] === 'modifFamille') {
                         $familleController->modifFamille();
                     }else {
+                        throw new Exception("Error !");
+                    }
+                }elseif($url[1] === 'animaux') {
+                    if($url[2] === 'listeAnimaux') {
+                        $animauxController->getAnimaux();
+                    }elseif($url[2] === 'supprAnimal') {
+                        $animauxController->supprAnimal();
+                    }elseif($url[2] === 'formAjouterAnimal') {
+                        $animauxController->formAjouterAnimal();
+                    }elseif($url[2] === 'ajoutAnimal') {
+                        $animauxController->ajoutAnimal();
+                    }
+                    else {
                         throw new Exception("Error !");
                     }
                 }else {

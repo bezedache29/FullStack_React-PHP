@@ -14,10 +14,9 @@
                 Animaux
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="<?= URL . "back/animaux/listeAnimaux"; ?>">Liste des animaux</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="<?= URL . "back/animaux/formAjouterAnimal"; ?>">Ajouter un animal</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
