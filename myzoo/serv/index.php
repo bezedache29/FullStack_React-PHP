@@ -36,10 +36,14 @@ try {
                 }elseif($url[1] === 'familles') {
                     if($url[2] === 'listeFamilles') {
                         $familleController->visualisation();
-                    }elseif($url[2] === 'ajouterFamille') {
-                        
+                    }elseif($url[2] === 'formAjouterFamille') {
+                        $familleController->formAjoutFamille();
+                    }elseif($url[2] === 'ajoutFamille') {
+                        $familleController->ajoutFamille();
                     }elseif($url[2] === 'supprFamille') {
                         $familleController->supprFamille();
+                    }elseif($url[2] === 'modifFamille') {
+                        $familleController->modifFamille();
                     }else {
                         throw new Exception("Error !");
                     }

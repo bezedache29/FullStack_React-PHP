@@ -27,7 +27,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="<?= URL . "back/familles/listeFamilles"; ?>">Liste des familles</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="<?= URL . "back/familles/ajouterFamille"; ?>">Ajouter une famille</a>
+                    <a class="dropdown-item" href="<?= URL . "back/familles/formAjouterFamille"; ?>">Ajouter une famille</a>
                 </div>
             </li>
             <li class="nav-item">
