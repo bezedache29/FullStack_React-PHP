@@ -59,8 +59,11 @@ try {
                         $animauxController->formAjouterAnimal();
                     }elseif($url[2] === 'ajoutAnimal') {
                         $animauxController->ajoutAnimal();
-                    }
-                    else {
+                    }elseif($url[2] === 'formModifAnimal') {
+                        $animauxController->formModifAnimal();
+                    }elseif($url[2] === 'modifAnimal') {
+                        $animauxController->modifAnimal();
+                    }else {
                         throw new Exception("Error !");
                     }
                 }else {

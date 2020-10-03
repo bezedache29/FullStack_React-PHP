@@ -18,7 +18,12 @@
                 <td><?= ucfirst($animal['type_animal']); ?></td>
                 <td><?= $animal['description_animal']; ?></td>
                 <td><?= $animal['nom_famille']; ?></td>
-                <td><button class="btn btn-warning">Modifier</button></td>
+                <td>
+                    <form action="<?= URL . "back/animaux/formModifAnimal"; ?>" method="post">
+                        <input type="hidden" name="id_animal" value="<?= $animal['id_animal']; ?>" />
+                        <button class="btn btn-warning" type="submit">Modifier</button>
+                    </form>
+                </td>
                 <td>
                     <form action="<?= URL . "back/animaux/supprAnimal"; ?>" method="post" onSubmit="return confirm('Voulez-vous vraiment supprimer l\'animal ?')">
                         <input type="hidden" name="id_animal" value="<?= $animal['id_animal']; ?>" />
