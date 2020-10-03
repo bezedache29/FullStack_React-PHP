@@ -29,12 +29,13 @@ Ajout de la table Admins pour le back-office
 ### Site Front-Office
 ![alt text](https://github.com/bezedache29/ProjetReact2/blob/master/img/site_front.jpg)
 
-[Lien de l'appli](http://tophe.alwaysdata.net/myzoo/)
+[Lien du site web](http://tophe.alwaysdata.net/myzoo/)
 
 ### Site Back-Office
 ![alt text](https://github.com/bezedache29/ProjetReact2/blob/master/img/site_back.jpg)
 
-[Lien de l'appli](http://tophe.alwaysdata.net/myzoo/serv/back/login)
+[Lien du site web](http://tophe.alwaysdata.net/myzoo/serv/back/login)
 
 Nom d'utilisateur => myzoo
+
 Mot de passe => azerty
