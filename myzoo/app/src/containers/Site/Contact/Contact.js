@@ -5,6 +5,9 @@ import Formulaire from './Formulaire/Formulaire'
 import Titre from '../../../components/Titres/TitreH1'
 import axios from 'axios'
 
+const hostname = "http://localhost/Udemy/H2prog/React/ProjetReact2/"
+// const hostname = "http://tophe.alwaysdata.net/"
+
 class Contact extends Component {
     state = {
         formulaire: false
@@ -32,7 +35,7 @@ class Contact extends Component {
         }
 
         // On envoie le formulaire
-        axios.post("http://localhost/Udemy/H2prog/React/ProjetReact2/myzoo/serv/front/sendForm", infosForm)
+        axios.post(`${hostname}myzoo/serv/front/sendForm`, infosForm)
             .then(reponse => {
                 console.log(reponse)
                 console.log(reponse.data)

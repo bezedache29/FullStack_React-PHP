@@ -68,15 +68,17 @@ class APIController {
     }
 
     public function sendForm() {
+        // header("Access-Control-Allow-Origin: http://ripley.eu/php/react_php/");
+        // header("Access-Control-Allow-Origin: http://tophe.alwaysdata.net/myzoo/");
         header("Access-Control-Allow-Origin: *");
         header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
         header("Access-Control-Allow-Headers: Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization");
 
         // On récupère les infos qui sont dans notre objet js
-        $obj = json_decode(file_get_contents('php://input'));
+        $objet = json_decode(file_get_contents('php://input'));
 
         // Exemple : Pour récupérer le mail
-        $mail = $obj->email;
+        $mail = $objet->email;
 
         // On peut envoyer un mail ici
         // $to = "contact@myzoo.com";
