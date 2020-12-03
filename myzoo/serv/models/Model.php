@@ -4,7 +4,8 @@ abstract class Model {
 
     // Création d'une methode accessible uniquement par la class
     private static function setBdd() {
-       
+        self::$pdo = new PDO('mysql:host=mysql-tophe.alwaysdata.net;dbname=tophe_myzoo;charset=utf8', 'tophe', '!Diky!29');
+        // self::$pdo = new PDO('mysql:host=db5000994539.hosting-data.io;dbname=dbs862627;charset=utf8', 'dbu361171', '!Diky!29');
         self::$pdo = new PDO('mysql:host=localhost;dbname=my_zoo;charset=utf8', 'root', '');
         self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
     }
